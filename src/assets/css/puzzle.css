@@ -1,0 +1,309 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+section {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+}
+
+button {
+    /*add a fun font and make the text white make them little bit bigger*/
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
+    color: white;
+    width: 10rem;
+    height: 3rem;
+    margin: 0 1rem;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px black;
+
+}
+
+#main_menu {
+    /*add a background image to the main menu*/
+    background-image: url("/assets/img/backgrounds/background_puzzle.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+#main_menu_container {
+    background-position: center;
+    height: 100vh;
+    width: 98vw;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    bottom: 2rem;
+}
+
+#main_menu_difficulty {
+    /*Add noticeable fun font add matching color scheme and use different font family*/
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
+
+}
+
+#main_menu_difficulty > input {
+    /*make them equal in size with the text*/
+    width: 2rem;
+    height: 2rem;
+
+}
+
+
+#main_menu_difficulty > label:nth-child(2) {
+    color: red;
+    font-weight: bolder;
+    -webkit-text-stroke: 1px #f8f8f8;
+}
+
+#main_menu_difficulty > label:nth-child(4) {
+    /*give them differnt colors*/
+    color: yellow;
+    font-weight: bolder;
+    -webkit-text-stroke: 1px #f8f8f8;
+}
+
+#main_menu_difficulty > label:nth-child(6) {
+    /*give them differnt colors*/
+    color: green;
+    font-weight: bolder;
+    -webkit-text-stroke: 1px #f8f8f8;
+}
+
+#main_menu_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+}
+
+#main_menu_buttons > button {
+    /*add a fun font and make the text white meke them little bit bigger*/
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
+    color: white;
+    width: 10rem;
+    height: 3rem;
+    margin: 0 1rem;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px black;
+
+}
+
+#main_menu_buttons > button:hover {
+    /*add a hover effect*/
+    background-color: yellow;
+    color: black;
+    box-shadow: 0 0 10px yellow;
+}
+
+#main_menu_button_play {
+    /*button color green add a play icon from font awesome package*/
+    background-color: green;
+    /*add matching darker color border*/
+    border: 2px solid darkgreen;
+
+}
+
+/*option button blue and credit button red*/
+/*add matching darker color border*/
+#main_menu_button_options {
+    background-color: blue;
+    border: 2px solid darkblue;
+}
+
+#main_menu_button_credits {
+    background-color: red;
+    border: 2px solid darkred;
+}
+
+
+/*Easy mode container flex mode column add background image*/
+.puzzle_container{
+    background-image: url(/assets/img/backgrounds/easy_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/*Easy mode title add stand out font with green color move it to left top corner*/
+
+.board{
+    background-image: url("/assets/img/boards/board_easy.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 400px;
+    height: 400px;
+    margin: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#easy_mode_puzzle > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 110px;
+    height: 330px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px black;
+    position: relative;
+    overflow: hidden;
+}
+#easy_mode_puzzle > div >div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 110px;
+    height: 110px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px black;
+    position: relative;
+    overflow: hidden;
+}
+
+.Moves {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    font-size: 3rem;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+    align-content: center;
+    align-items: center;
+    color: goldenrod;
+    -webkit-text-stroke: 0.2rem #070707;
+}
+
+.mode_buttons>button:nth-child(1){
+    background: #ff253a;
+}
+
+.mode_buttons>button:nth-child(1):hover{
+    background: #ffc300;
+    color: black;
+    box-shadow: 0 0 10px #ffc300;
+}
+
+.mode_buttons>button:nth-child(2){
+    background: #35ff17;
+}
+
+.mode_buttons>button:nth-child(2):hover{
+    background: #a200ff;
+    color: black;
+    box-shadow: 0 0 10px #a200ff;
+}
+
+#medium_mode{
+    background-image: url(/assets/img/backgrounds/medium_bg.jpg);
+
+}
+
+#medium_mode_puzzle{
+    background-image: url("/assets/img/boards/board_medium.png");
+    width: 500px;
+    height: 500px;
+
+}
+
+#medium_mode_puzzle > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100px;
+    height: 400px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px black;
+    position: relative;
+    overflow: hidden;
+}
+#medium_mode_puzzle > div >div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px black;
+    position: relative;
+    overflow: hidden;
+}
+
+#hard_mode{
+    background-image: url(/assets/img/backgrounds/hard.jpg);
+
+}
+
+#hard_mode_puzzle{
+    background-image: url("/assets/img/boards/board_hard.png");
+    width: 500px;
+    height: 500px;
+
+}
+
+#hard_mode_puzzle > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 80px;
+    height: 400px;
+    border: 1px solid black;
+    box-shadow: 0 0 5px black;
+    position: relative;
+    overflow: hidden;
+}
+#hard_mode_puzzle > div >div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    box-shadow: 0 0 5px black;
+    position: relative;
+    overflow: hidden;
+}

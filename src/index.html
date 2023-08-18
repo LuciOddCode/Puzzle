@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/puzzle.css">
+
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <title>Puzzle Master</title>
+    <link href="assets/fontawesome-free-6.4.0-web/css/all.css" rel="stylesheet">
+</head>
+<body>
+<section id="main_menu">
+    <div id="main_menu_container">
+        <!--select difficulty-->
+        <div>
+            <!--radio buttons-->
+            <div id="main_menu_difficulty">
+                <input type="radio" id="main_menu_difficulty_easy" name="difficulty" value="easy" checked>
+                <label for="main_menu_difficulty_easy">Easy</label>
+                <input type="radio" id="main_menu_difficulty_medium" name="difficulty" value="medium">
+                <label for="main_menu_difficulty_medium">Medium</label>
+                <input type="radio" id="main_menu_difficulty_hard" name="difficulty" value="hard">
+                <label for="main_menu_difficulty_hard">Hard</label>
+            </div>
+        </div>
+        <div id="main_menu_buttons">
+            <button id="main_menu_button_play">Play</button>
+            <button id="main_menu_button_options">Options</button>
+            <button id="main_menu_button_credits">Credits</button>
+        </div>
+    </div>
+</section>
+
+<!--Easy mode-->
+<section  id="easy_mode">
+    <div class="puzzle_container" id="easy_mode_container">
+        <div id="easy_mode_puzzle" class="board">
+            <div id="easy_mode_puzzle_row_1">
+                <div id="easy_mode_puzzle_row_1_col_1" class="easy_mode_puzzle_piece"></div>
+                <div id="easy_mode_puzzle_row_1_col_2" class="easy_mode_puzzle_piece"></div>
+                <div id="easy_mode_puzzle_row_1_col_3" class="easy_mode_puzzle_piece"></div>
+            </div>
+            <div id="easy_mode_puzzle_row_2">
+                <div id="easy_mode_puzzle_row_2_col_1" class="easy_mode_puzzle_piece"></div>
+                <div id="easy_mode_puzzle_row_2_col_2" class="easy_mode_puzzle_piece"></div>
+                <div id="easy_mode_puzzle_row_2_col_3" class="easy_mode_puzzle_piece"></div>
+            </div>
+            <div id="easy_mode_puzzle_row_3">
+                <div id="easy_mode_puzzle_row_3_col_1" class="easy_mode_puzzle_piece"></div>
+                <div id="easy_mode_puzzle_row_3_col_2" class="easy_mode_puzzle_piece"></div>
+                <div id="easy_mode_puzzle_row_3_col_3" class="easy_mode_puzzle_piece"></div>
+            </div>
+        </div>
+        <!--timer-->
+        <div class="bottom_half">
+            <div id="easy_mode_Moves" class="Moves">
+                <h2>Moves</h2>
+                <p id="easy_mode_moves_count">00</p>
+            </div>
+            <div class="mode_buttons">
+                <button id="easy_mode_button_play">Replay</button>
+                <button id="easy_mode_button_back">Back</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!--Medium mode-->
+<section class="puzzle_container" id="medium_mode">
+    <div class="board" id="medium_mode_puzzle">
+        <div id="medium_mode_puzzle_row_1">
+            <div id="medium_mode_puzzle_row_1_col_1" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_1_col_2" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_1_col_3" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_1_col_4" class="medium_mode_puzzle_piece"></div>
+        </div>
+        <div id="medium_mode_puzzle_row_2">
+            <div id="medium_mode_puzzle_row_2_col_1" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_2_col_2" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_2_col_3" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_2_col_4" class="medium_mode_puzzle_piece"></div>
+        </div>
+        <div id="medium_mode_puzzle_row_3">
+            <div id="medium_mode_puzzle_row_3_col_1" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_3_col_2" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_3_col_3" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_3_col_4" class="medium_mode_puzzle_piece"></div>
+        </div>
+        <div id="medium_mode_puzzle_row_4">
+            <div id="medium_mode_puzzle_row_4_col_1" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_4_col_2" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_4_col_3" class="medium_mode_puzzle_piece"></div>
+            <div id="medium_mode_puzzle_row_4_col_4" class="medium_mode_puzzle_piece"></div>
+        </div>
+    </div>
+    <!--timer-->
+    <div class="bottom_half">
+        <div id="medium_mode_Moves" class="Moves">
+            <h2>Moves</h2>
+            <p id="medium_mode_Moves_count">00</p>
+        </div>
+        <div class="mode_buttons">
+            <button id="medium_mode_button_play">Replay</button>
+            <button id="medium_mode_button_back">Back</button>
+        </div>
+    </div>
+
+</section>
+
+<!--Hard mode-->
+<section class="puzzle_container" id="hard_mode">
+    <div id="hard_mode_puzzle" class="board">
+        <div id="hard_mode_puzzle_row_1">
+            <div id="hard_mode_puzzle_row_1_col_1" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_1_col_2" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_1_col_3" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_1_col_4" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_1_col_5" class="hard_mode_puzzle_piece"></div>
+        </div>
+        <div id="hard_mode_puzzle_row_2">
+            <div id="hard_mode_puzzle_row_2_col_1" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_2_col_2" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_2_col_3" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_2_col_4" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_2_col_5" class="hard_mode_puzzle_piece"></div>
+        </div>
+        <div id="hard_mode_puzzle_row_3">
+            <div id="hard_mode_puzzle_row_3_col_1" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_3_col_2" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_3_col_3" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_3_col_4" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_3_col_5" class="hard_mode_puzzle_piece"></div>
+        </div>
+        <div id="hard_mode_puzzle_row_4">
+            <div id="hard_mode_puzzle_row_4_col_1" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_4_col_2" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_4_col_3" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_4_col_4" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_4_col_5" class="hard_mode_puzzle_piece"></div>
+        </div>
+        <div id="hard_mode_puzzle_row_5">
+            <div id="hard_mode_puzzle_row_5_col_1" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_5_col_2" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_5_col_3" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_5_col_4" class="hard_mode_puzzle_piece"></div>
+            <div id="hard_mode_puzzle_row_5_col_5" class="hard_mode_puzzle_piece"></div>
+        </div>
+    </div>
+    <!--timer-->
+    <div class="bottom_half">
+        <div id="hard_mode_Moves" class="Moves">
+            <h2>Moves</h2>
+            <p id="hard_mode_Moves_count">00</p>
+        </div>
+        <div class="mode_buttons">
+            <button id="hard_mode_button_play">Replay</button>
+            <button id="hard_mode_button_back">Back</button>
+        </div>
+    </div>
+
+</section>
+<section id="wining_status_container">
+    <div id="wining_status">
+        <h1>You Won!</h1>
+    </div>
+    <div id="stars_you_won"></div>
+    <div id="wining_status_buttons">
+        <button id="wining_status_button_play">Play Again</button>
+        <button id="wining_status_button_back">Back</button>
+    </div>
+</section>
+
+<script src="assets/js/jquery-3.7.0.min.js"></script>
+<script src="assets/js/puzzle.js"></script>
+</body>
+</html>
