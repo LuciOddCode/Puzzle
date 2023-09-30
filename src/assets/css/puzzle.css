@@ -210,6 +210,7 @@ button {
     -webkit-text-stroke: 0.2rem #070707;
 }
 
+
 .mode_buttons>button:nth-child(1){
     background: #ff253a;
 }
@@ -306,4 +307,8 @@ button {
     box-shadow: 0 0 5px black;
     position: relative;
     overflow: hidden;
+}
+.bottom_half>img:nth-child(1){
+    width: 8rem;
+    height: 8rem;
 }
