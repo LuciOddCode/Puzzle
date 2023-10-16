@@ -14,7 +14,7 @@ const arrDivM = $('.medium_mode_puzzle_piece');
 const arrDivH = $('.hard_mode_puzzle_piece');
 
 //arrays of pieces easy mode
-arrEasy.push('assets/img/pieces/EasyPieces/9.jpg');
+arrEasy.push(null);
 arrEasy.push('assets/img/pieces/EasyPieces/6.jpg');
 arrEasy.push('assets/img/pieces/EasyPieces/3.jpg');
 
@@ -27,7 +27,7 @@ arrEasy.push('assets/img/pieces/EasyPieces/4.jpg');
 arrEasy.push('assets/img/pieces/EasyPieces/1.jpg');
 
 //arrays of pieces medium mode
-arrMedium.push('assets/img/pieces/MediumPieces/16.jpg');
+arrMedium.push(null);
 arrMedium.push('assets/img/pieces/MediumPieces/12.jpg');
 arrMedium.push('assets/img/pieces/MediumPieces/8.jpg');
 arrMedium.push('assets/img/pieces/MediumPieces/4.jpg');
@@ -48,7 +48,7 @@ arrMedium.push('assets/img/pieces/MediumPieces/5.jpg');
 arrMedium.push('assets/img/pieces/MediumPieces/1.jpg');
 
 //arrays of pieces hard mode
-arrHard.push('assets/img/pieces/HardPieces/25.jpg');
+arrHard.push(null);
 arrHard.push('assets/img/pieces/HardPieces/20.jpg');
 arrHard.push('assets/img/pieces/HardPieces/15.jpg');
 arrHard.push('assets/img/pieces/HardPieces/10.jpg');
@@ -80,16 +80,96 @@ arrHard.push('assets/img/pieces/HardPieces/1.jpg');
 
 
 //bind click event to pieces
+const clickHandlers = [];
+
 function bindClickToPieces(arrDivs) {
-    for (let i = 0; i <arrDivs.length ; i++) {
-        arrDivs[i].addEventListener('click', function () {
-            move(arrDivs[i]);
-        });
+
+    for (let i = 0; i < arrDivs.length; i++) {
+        arrDivs[i].removeEventListener('click', clickHandlers[i]);
+    }
+
+
+    for (let i = 0; i < arrDivs.length; i++) {
+        // Define a unique click event handler function for each element
+        function clickHandler(e) {
+            move(i,arrDivs);
+        }
+
+        clickHandlers[i] = clickHandler;
+
+        arrDivs[i].addEventListener('click', clickHandler);
     }
 }
 
-function move(div) {
-  
+function checkWin() {
+
+}
+function checkForEmptyPiece(arrDivs) {
+    let emptyPiece = -1;
+
+    for (let i = 0; i < arrDivs.length; i++) {
+        let img = $(arrDivs[i]).find('img');
+        let src = img.attr("src");
+
+        if (src == null) {
+            emptyPiece = i;
+            console.log("ekak null awa");
+            break;
+        }
+
+    }
+
+    return emptyPiece;
+}
+
+function checkIfLegalMove(clicked,emptyPiece,arrDivs) {
+
+    let gridSize=3;
+    if (arrDivs.length===9){
+        gridSize=3;
+    }
+
+    if (arrDivs.length===16){
+        gridSize=4;
+    }
+
+    if (arrDivs.length===25){
+        gridSize=5;
+    }
+
+
+    let colCli=Math.floor(clicked / gridSize);
+    let rowCli = Math.floor(clicked % gridSize)
+    console.log(colCli,rowCli);
+
+    let colEmp =Math.floor(emptyPiece/gridSize);
+    let rowEmp =Math.floor(emptyPiece % gridSize);
+
+
+    return ((rowCli===rowEmp && Math.abs(colCli-colEmp)===1)  || (colCli===colEmp && Math.abs(rowCli-rowEmp)===1));
+
+}
+
+function move(i, arrDivs,mode) {
+    let clicked=i;
+    let emptyPiece=checkForEmptyPiece(arrDivs);
+    console.log("Empty:"+emptyPiece);
+
+    let isLegal=checkIfLegalMove(clicked,emptyPiece,arrDivs);
+    if (isLegal===true){
+
+        console.log(i);
+        let img = $(arrDivs[i]).find('img');
+        let src = img.attr("src");
+
+
+        let find = $(arrDivs[emptyPiece]).find('img');
+        find.attr("src",src);
+
+        img.attr("src",null);
+        console.log(src);
+
+    }
 }
 
 
@@ -111,7 +191,7 @@ $("#main_menu_button_play").click(function () {
         case 'easy':
             $('#main_menu').css('display', 'none');
             $('#easy_mode').css('display', 'block');
-            scramble(arrDivE);
+            scramble(imgArrayEasy);
             appendImages(imgArrayEasy, arrDivE);
             bindClickToPieces(arrDivE);
 
@@ -119,15 +199,17 @@ $("#main_menu_button_play").click(function () {
         case 'medium':
             $('#main_menu').css('display', 'none');
             $('#medium_mode').css('display', 'flex');
-            scramble(arrDivM);
+            scramble(imgArrayMedium);
             appendImages(imgArrayMedium, arrDivM);
+            bindClickToPieces(arrDivM);
 
             break;
         case 'hard':
             $('#main_menu').css('display', 'none');
             $('#hard_mode').css('display', 'flex');
-            scramble(arrDivH);
+            scramble(imgArrayHard);
             appendImages(imgArrayHard, arrDivH);
+            bindClickToPieces(arrDivH);
 
             break;
         default:
@@ -163,51 +245,59 @@ $("#hard_mode_button_back").click(function () {
 for (let i = 0; i < arrEasy.length; i++) {
     let img = $('<img>').attr('src', arrEasy[i]);
     imgArrayEasy.push(img);
+
 }
 
 for (let i = 0; i < arrMedium.length; i++) {
     let img = $('<img>').attr('src', arrMedium[i]);
-    $(img).css('width', '100%');
+  /*  $(img).css('width', '100%');
     $(img).css('height', '100%');
-    $(img).css('object-fit', 'cover');
+    $(img).css('object-fit', 'cover');*/
     imgArrayMedium.push(img);
 }
 
 // Iterate through arrHard and create img elements
 for (let i = 0; i < arrHard.length; i++) {
     let img = $('<img>').attr('src', arrHard[i]);
-    $(img).css('width', '100%');
+   /* $(img).css('width', '100%');
     $(img).css('height', '100%');
-    $(img).css('object-fit', 'cover');
+    $(img).css('object-fit', 'cover');*/
     imgArrayHard.push(img);
 }
 
 function appendImages(arrImg, arrDiv) {
-    for (let i = 0; i < arrImg.length-1; i++) {
+    for (let i = 0; i < arrDiv.length; i++) {
+
+        $(arrDiv[i]).empty();
+
+
         $(arrDiv[i]).append(arrImg[i]);
     }
 }
 //replay button
 $("#hard_mode_button_play").click(function () {
-    scramble(arrDivH);
+    scramble(imgArrayHard);
     appendImages(imgArrayHard, arrDivH);
+    bindClickToPieces(arrDivH);
 });
 
 $("#medium_mode_button_play").click(function () {
-    scramble(arrDivM);
+    scramble(imgArrayMedium);
     appendImages(imgArrayMedium, arrDivM);
+    bindClickToPieces(arrDivM);
 });
 
 $("#easy_mode_button_play").click(function () {
-    scramble(arrDivE);
+    scramble(imgArrayEasy);
     appendImages(imgArrayEasy, arrDivE);
+    bindClickToPieces(arrDivE);
 });
 
 
 //scramble pieces
+//remove previous piece
 function scramble(pieceArr) {
     let currentIndex = pieceArr.length;
-
     for (let i = 0; i < pieceArr.length; i++) {
         let randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -215,6 +305,7 @@ function scramble(pieceArr) {
         pieceArr[currentIndex] = pieceArr[randomIndex];
         pieceArr[randomIndex] = temporaryValue;
     }
-
 }
+
+
 
